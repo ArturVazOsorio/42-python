@@ -2,40 +2,42 @@
 # *************************************************************************** #
 #                                                                             #
 #                                                        :::      ::::::::    #
-#    ft_plan_growth.py                                 :+:      :+:    :+:    #
+#    ft_plant_factory.py                               :+:      :+:    :+:    #
 #                                                    +:+ +:+         +:+      #
 #    By: aantela- <aantela-@student.42porto.com>   +#+  +:+       +#+         #
 #                                                +#+#+#+#+#+   +#+            #
-#    Created: 2026/08/02 13:13:07 by aantela-         #+#    #+#              #
-#    Updated: 2026/08/02 13:13:07 by aantela-        ###   ########.fr        #
+#    Created: 2026/08/02 22:01:19 by aantela-         #+#    #+#              #
+#    Updated: 2026/08/02 22:01:19 by aantela-        ###   ########.fr        #
 #                                                                             #
 # *************************************************************************** #
+
 class Plant:
     def __init__(self, name: str, height: float, days: int):
         self.name = name
         self.height = height
         self.days = days
 
-    def show(self):
-        print(f"{self.name}: {self.height}cm, {self.days} days old")
+    def __str__(self) -> str:
+        return (f"{self.name}: {self.height}cm, {self.days} days old")
+
+    def show(self) -> None:
+        print(self)
 
     def grow(self, size: float = 0.0) -> None:
         self.height = round(self.height + size, 1)
 
     def age(self, days: int = 0) -> None:
-        self.days = self.days + days
+        self.days += days
 
 
 if __name__ == "__main__":
-    print("=== Garde Plant Growth===")
-    plant1 = Plant(name="Rose", height=25.0, days=30)
-    plant1.show()
-
-    initial_height = plant1.height
-    for x in range(1, 8):
-        print(f"=== Day {x} ===")
-        plant1.grow(0.8)
-        plant1.age(1)
-        plant1.show()
-    growth_this_week = round(plant1.height - initial_height, 1)
-    print(f"Growth this week: {growth_this_week:}cm")
+    plants = [
+        Plant("Rose", 25.0, 30),
+        Plant("Oak", 200.0, 365),
+        Plant("Cactus", 5.0, 90),
+        Plant("Sunflower", 80.0, 45),
+        Plant("Fern", 15.0, 120),
+    ]
+    print("=== Plant Factory Output ===")
+    for plant in plants:
+        print(f"Created: {plant}")
