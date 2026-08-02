@@ -1,0 +1,16 @@
+# *************************************************************************** #
+#                                                                             #
+#                                                        :::      ::::::::    #
+#    ft_plot_area.py                                   :+:      :+:    :+:    #
+#                                                    +:+ +:+         +:+      #
+#    By: aantela- <aantela-@student.42porto.com>   +#+  +:+       +#+         #
+#                                                +#+#+#+#+#+   +#+            #
+#    Created: 2026/07/27 11:18:41 by aantela-         #+#    #+#              #
+#    Updated: 2026/07/27 11:32:12 by aantela-        ###   ########.fr        #
+#                                                                             #
+# *************************************************************************** #
+
+def ft_plot_area():
+    lenght = int(input("Enter length: "))
+    width = int(input("Enter width: "))
+    print(f"Plot area: {lenght * width}")
