@@ -7,13 +7,13 @@
 #    By: aantela- <aantela-@student.42porto.com>   +#+  +:+       +#+         #
 #                                                +#+#+#+#+#+   +#+            #
 #    Created: 2026/09/11 03:02:23 by aantela-         #+#    #+#              #
-#    Updated: 2026/09/11 03:42:08 by aantela-        ###   ########.fr        #
+#    Updated: 2026/10/22 18:37:07 by aantela-        ###   ########.fr        #
 #                                                                             #
 # *************************************************************************** #
 
 def input_temperature(temp_str) -> int:
     int_temp = int(temp_str)
-    if int_temp in range(0, 41):
+    if int_temp in range(41):
         return int_temp
     elif int_temp > 40:
         raise ValueError(f"{int_temp}°C is too hot for plants (max 40°C)")
