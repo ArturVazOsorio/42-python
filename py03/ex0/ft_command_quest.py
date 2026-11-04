@@ -7,7 +7,7 @@
 #    By: aantela- <aantela-@student.42porto.com>   +#+  +:+       +#+         #
 #                                                +#+#+#+#+#+   +#+            #
 #    Created: 2026/10/27 18:02:33 by aantela-         #+#    #+#              #
-#    Updated: 2026/10/27 19:45:10 by aantela-        ###   ########.fr        #
+#    Updated: 2026/11/04 08:15:50 by aantela-        ###   ########.fr        #
 #                                                                             #
 # *************************************************************************** #
 
@@ -25,4 +25,5 @@ def main() -> None:
     print(f"Total arguments: {len_argv}")
 
 
-main()
+if __name__ == "__main__":
+    main()
