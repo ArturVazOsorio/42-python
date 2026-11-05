@@ -7,14 +7,13 @@
 #    By: aantela- <aantela-@student.42porto.com>   +#+  +:+       +#+         #
 #                                                +#+#+#+#+#+   +#+            #
 #    Created: 2026/10/27 18:02:33 by aantela-         #+#    #+#              #
-#    Updated: 2026/11/04 08:15:50 by aantela-        ###   ########.fr        #
+#    Updated: 2026/10/27 18:23:48 by aantela-        ###   ########.fr        #
 #                                                                             #
 # *************************************************************************** #
 
 import sys
 
-
-def main() -> None:
+if __name__ == "__main__":
     print("=== Comand quest ===")
     prog_name = sys.argv[0]
     print(f"Program name: {prog_name}")
@@ -23,7 +22,3 @@ def main() -> None:
         for x in range(len(sys.argv)):
             print(f"Argument {x}: {sys.argv[x]}")
     print(f"Total arguments: {len_argv}")
-
-
-if __name__ == "__main__":
-    main()
