@@ -7,7 +7,7 @@
 #    By: aantela- <aantela-@student.42porto.com>   +#+  +:+       +#+         #
 #                                                +#+#+#+#+#+   +#+            #
 #    Created: 2026/11/06 18:28:31 by aantela-         #+#    #+#              #
-#    Updated: 2026/11/06 18:28:31 by aantela-        ###   ########.fr        #
+#    Updated: 2026/11/09 09:52:23 by aantela-        ###   ########.fr        #
 #                                                                             #
 # *************************************************************************** #
 
@@ -57,11 +57,22 @@ def main() -> None:
         percentage = round((qty / total_quantity) * 100, 1)
         print(f"Item {item} represents {percentage}%")
 
-    most_abundant = max(inventory, key=inventory.get)
+    most_abundant = ""
+    max_qty = -1
+    for item, qty in inventory.items():
+        if qty > max_qty:
+            max_qty = qty
+            most_abundant = item
+
     print(f"Item most abundant: {most_abundant} with"
           f" quantity {inventory[most_abundant]}")
 
-    least_abundant = min(inventory, key=inventory.get)
+    least_abundant = ""
+    min_qty = float('inf')
+    for item, qty in inventory.items():
+        if qty < min_qty:
+            min_qty = qty
+            least_abundant = item
     print(f"Item least abundant: {least_abundant} with"
           f" quantity {inventory[least_abundant]}")
 
