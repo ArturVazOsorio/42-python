@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
-# *************************************************************************** #
+# ########################################################################### #
+#   shebang: 1                                                                #
+#                                                          :::      ::::::::  #
+#   ft_ancient_text.py                                   :+:      :+:    :+:  #
+#                                                      +:+ +:+         +:+    #
+#   By: aantela- <aantela-@student.42porto.com>      +#+  +:+       +#+       #
+#                                                  +#+#+#+#+#+   +#+          #
+#   Created: Invalid date        by -         #         #+#    #+#            #
+#   Updated: 2026/11/10 23:02:24 by aantela-           ###   ########.fr      #
 #                                                                             #
-#                                                        :::      ::::::::    #
-#    ft_ancient_text.py                                :+:      :+:    :+:    #
-#                                                    +:+ +:+         +:+      #
-#    By: aantela- <aantela-@student.42porto.com>   +#+  +:+       +#+         #
-#                                                +#+#+#+#+#+   +#+            #
-#    Created: 2026/11/09 20:15:58 by aantela-         #+#    #+#              #
-#    Updated: 2026/11/10 22:45:25 by aantela-        ###   ########.fr        #
-#                                                                             #
-# *************************************************************************** #
+# ########################################################################### #
 
 import sys
 import typing
@@ -20,7 +20,7 @@ def read_archive(filepath: str) -> str | None:
     try:
         file: typing.IO[str] = open(filepath, "r")
     except (FileNotFoundError, PermissionError, OSError) as e:
-        print(f"{e.__class__.__name__}: {e}")
+        print(f"Error opening file '{filepath}': {e}")
         return None
     try:
         content: str = file.read()
