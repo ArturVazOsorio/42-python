@@ -6,10 +6,11 @@
 #                                                      +:+ +:+         +:+    #
 #   By: aantela- <aantela-@student.42porto.com>      +#+  +:+       +#+       #
 #                                                  +#+#+#+#+#+   +#+          #
-#   Created: Invalid date        by -         #         #+#    #+#            #
-#   Updated: 2026/11/10 23:16:21 by aantela-           ###   ########.fr      #
+#   Created: 2026/11/11 18:40:10 by aantela-            #+#    #+#            #
+#   Updated: 2026/11/11 19:38:33 by aantela-           ###   ########.fr      #
 #                                                                             #
 # ########################################################################### #
+
 
 import sys
 import typing
@@ -54,7 +55,7 @@ def save_archive(filename: str, content: str) -> None:
         file.write(content + "\n")
         print(f"Data Saved in file '{filename}'.")
     finally:
-        file.close
+        file.close()
 
 
 def handle_export(content: str) -> None:
