@@ -11,11 +11,11 @@
 #                                                                             #
 # *************************************************************************** #
 
-def input_temperature(temp_str) -> int:
+def input_temperature(temp_str: str) -> int:
     return int(temp_str)
 
 
-def test_temperature(temp) -> None:
+def test_temperature(temp: str) -> None:
     print(f"Input data is '{temp}'")
     try:
         tmp = input_temperature(temp)
