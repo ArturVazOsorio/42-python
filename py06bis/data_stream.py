@@ -28,7 +28,7 @@ class DataStream():
     def register_processor(self, proc: DataProcessor) -> None:
         self._processors.append(proc)
 
-    def processor_stream(self, stream: list[typing.Any]) -> None:
+    def process_stream(self, stream: list[typing.Any]) -> None:
         for item in stream:
             processed = False
             for proc in self._processors:
@@ -36,10 +36,11 @@ class DataStream():
                     proc.ingest(item)
                     processed = True
                     break
-        if not processed:
-            print(
-                f"DataStream Error - Can't process element in stream: {item}"
-            )
+            if not processed:
+                print(
+                    "DataStream Error - "
+                    f"Can't process element in stream: {item}"
+                )
 
     def print_processors_stats(self) -> None:
         if not self._processors:
@@ -55,7 +56,7 @@ class DataStream():
 if __name__ == "__main__":
     stream = DataStream()
     print("=== Code Nexus - Data Stream ===")
-    print("\n Initialize Data Stream...")
+    print("\nInitialize Data Stream...")
     print("== DataStream statistics ==")
     stream.print_processors_stats()
     stream_data: list[Any] = [
@@ -78,8 +79,8 @@ if __name__ == "__main__":
     num_proc = NumericProcessor()
     stream.register_processor(num_proc)
     print(f"Send first batch of data on stream: {stream_data}")
-    stream.processor_stream(stream_data)
-    print("\n== DataStream statistics ==")
+    stream.process_stream(stream_data)
+    print("== DataStream statistics ==")
     stream.print_processors_stats()
 
     print("\nRegistering other data processors")
@@ -88,6 +89,17 @@ if __name__ == "__main__":
     stream.register_processor(txt_proc)
     stream.register_processor(log_proc)
     print("Send the same batch again")
-    stream.processor_stream(stream_data)
-    print("\n== DataStream statistics ==")
+    stream.process_stream(stream_data)
+    print("== DataStream statistics ==")
+    stream.print_processors_stats()
+
+    print("\nConsume some elements from the data processors:"
+          " Numeric 3, Text 2, Log 1")
+    for _ in range(3):
+        num_proc.output()
+    for _ in range(2):
+        txt_proc.output()
+    for _ in range(1):
+        log_proc.output()
+    print("== DataStream statistics ==")
     stream.print_processors_stats()
