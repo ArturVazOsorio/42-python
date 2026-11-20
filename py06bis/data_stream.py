@@ -7,7 +7,7 @@
 #   By: aantela- <aantela-@student.42porto.com>      +#+  +:+       +#+       #
 #                                                  +#+#+#+#+#+   +#+          #
 #   Created: 2026/11/19 20:14:02 by aantela-            #+#    #+#            #
-#   Updated: 2026/11/20 00:19:32 by aantela-           ###   ########.fr      #
+#   Updated: 2026/11/20 14:47:16 by aantela-           ###   ########.fr      #
 #                                                                             #
 # ########################################################################### #
 
@@ -38,7 +38,7 @@ class DataStream():
                     break
             if not processed:
                 print(
-                    "DataStream Error - "
+                    "DataStream error - "
                     f"Can't process element in stream: {item}"
                 )
 

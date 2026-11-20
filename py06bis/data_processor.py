@@ -7,7 +7,7 @@
 #   By: aantela- <aantela-@student.42porto.com>      +#+  +:+       +#+       #
 #                                                  +#+#+#+#+#+   +#+          #
 #   Created: 2026/11/17 02:21:32 by aantela-            #+#    #+#            #
-#   Updated: 2026/11/19 20:10:16 by aantela-           ###   ########.fr      #
+#   Updated: 2026/11/20 15:23:05 by aantela-           ###   ########.fr      #
 #                                                                             #
 # ########################################################################### #
 
@@ -22,11 +22,11 @@ class DataProcessor(ABC):
 
     @abstractmethod
     def validate(self, data: Any) -> bool:
-        pass
+        ...
 
     @abstractmethod
     def ingest(self, data: Any) -> None:
-        pass
+        ...
 
     def output(self) -> tuple[int, str]:
         if not self._data:
