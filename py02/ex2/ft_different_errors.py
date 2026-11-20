@@ -11,20 +11,18 @@
 #                                                                             #
 # *************************************************************************** #
 
-def garden_operations(operation_number):
+def garden_operations(operation_number: int) -> None:
     if operation_number == 0:
-        return (int("abc"))
+        int("abc")
     elif operation_number == 1:
-        return (10/0)
+        _ = 10 / 0
     elif operation_number == 2:
-        return (open("42.txt", "r"))
+        open("42.txt", "r")
     elif operation_number == 3:
-        return ("hello" + 42)
-    else:
-        return operation_number
+        _ = "hello" + 42  # type: ignore[operator]
 
 
-def test_error_types():
+def test_error_types() -> None:
     for i in range(5):
         print(f"testing operation{i}...")
         try:

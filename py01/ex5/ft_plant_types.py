@@ -90,7 +90,7 @@ class Flower(Plant):
                 f"Color: {self.color}\n"
                 f"{self.name} {bloom_status}")
 
-    def bloom(self):
+    def bloom(self) -> None:
         self._blooming = True
 
 
@@ -103,7 +103,7 @@ class Tree(Plant):
     def __str__(self) -> str:
         return f"{super().__str__()}\nTrunk diameter: {self.trunk_diameter}cm"
 
-    def produce_shade(self):
+    def produce_shade(self) -> None:
         print(f"Tree {self.name} now produces a shade of "
               f"{self._height}cm long and {self.trunk_diameter}cm wide.")
 
@@ -125,7 +125,7 @@ class Vegetable(Plant):
                 f"Harvest season: {self.harvest_season}\n"
                 f"Nutritional value: {self.nutritional_value}")
 
-    def age(self, days: int = 0):
+    def age(self, days: int = 0) -> None:
         super().age(days)
         if days > 0:
             self.nutritional_value += days

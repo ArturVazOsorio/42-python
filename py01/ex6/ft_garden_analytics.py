@@ -19,12 +19,12 @@ class Plant:
         self._stats = self._Stats()
 
     class _Stats:
-        def __init__(self):
+        def __init__(self) -> None:
             self.grow_calls = 0
             self.age_calls = 0
             self.show_calls = 0
 
-        def display(self):
+        def display(self) -> None:
             print(f"Stats: {self.grow_calls} grow, "
                   f"{self.age_calls} age, {self.show_calls} show")
 
@@ -50,7 +50,7 @@ class Plant:
         return days > 365
 
     @classmethod
-    def anonymous(cls):
+    def anonymous(cls) -> "Plant":
         return cls("Unknown plant")
 
 
@@ -80,11 +80,11 @@ class Tree(Plant):
         self._stats: Tree._TreeStats = self._TreeStats()
 
     class _TreeStats(Plant._Stats):
-        def __init__(self):
+        def __init__(self) -> None:
             super().__init__()
             self.shade_calls = 0
 
-        def display(self):
+        def display(self) -> None:
             super().display()
             print(f"{self.shade_calls} shade")
 

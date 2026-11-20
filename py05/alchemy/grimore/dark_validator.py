@@ -19,5 +19,3 @@ def validate_ingredients(ingredients: str) -> str:
     if any(item in ingredients.lower() for item in allowed):
         return f"{ingredients} - VALID"
     return f"{ingredients} - INVALID"
-
-    

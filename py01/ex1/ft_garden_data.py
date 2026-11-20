@@ -12,13 +12,13 @@
 # *************************************************************************** #
 
 class Plant:
-    def __init__(self, name, height, days):
+    def __init__(self, name: str, height: int, days: int) -> None:
         self.name = name
         self.height = height
         self.days = days
 
-    def show(self):
-        print(f"{self.name}: {self.height}cm, {self.day} days old")
+    def show(self) -> None:
+        print(f"{self.name}: {self.height}cm, {self.days} days old")
 
 
 if __name__ == "__main__":

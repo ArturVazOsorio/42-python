@@ -12,7 +12,7 @@
 # ########################################################################### #
 
 import os
-from dotenv import load_dotenv  # type: ignore[import-not-found]
+from dotenv import load_dotenv
 
 
 def load_config() -> dict[str, str | None]:

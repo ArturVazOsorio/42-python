@@ -33,7 +33,7 @@ def parse_coords(raw: str) -> Coords:
     return (x, y, z)
 
 
-def get_player_pos():
+def get_player_pos() -> Coords:
     while True:
         raw = input("Enter new coordinates as floats in format  'x, y, z':")
         try:

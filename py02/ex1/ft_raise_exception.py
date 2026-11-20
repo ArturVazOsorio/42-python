@@ -11,7 +11,7 @@
 #                                                                             #
 # *************************************************************************** #
 
-def input_temperature(temp_str) -> int:
+def input_temperature(temp_str: str) -> int:
     int_temp = int(temp_str)
     if int_temp in range(41):
         return int_temp
@@ -21,7 +21,7 @@ def input_temperature(temp_str) -> int:
         raise ValueError(f"{int_temp}°C is too cold for plants (min 0°C)")
 
 
-def test_temperature(temp) -> None:
+def test_temperature(temp: str) -> None:
     print(f"Input data is '{temp}'")
     try:
         tmp = input_temperature(temp)
