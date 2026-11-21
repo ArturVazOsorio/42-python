@@ -7,7 +7,7 @@
 #   By: aantela- <aantela-@student.42porto.com>      +#+  +:+       +#+       #
 #                                                  +#+#+#+#+#+   +#+          #
 #   Created: 2026/11/20 14:49:43 by aantela-            #+#    #+#            #
-#   Updated: 2026/11/20 15:31:51 by aantela-           ###   ########.fr      #
+#   Updated: 2026/11/21 12:24:29 by aantela-           ###   ########.fr      #
 #                                                                             #
 # ########################################################################### #
 
@@ -82,4 +82,25 @@ if __name__ == "__main__":
     stream.register_processor(log_proc)
     print(f"Send first batch of data on stream: {stream_data}\n")
     stream.process_stream(stream_data)
+    print("== DataStream statistics ==")
+    stream.print_processors_stats()
+    print("Send 3 processed data from each processor to a CSV plugin:")
+    csv_plugin = CSVPlugin()
+    stream.output_pipeline(3, csv_plugin)
+    print("\n== DataStream statistics ==")
+    stream.print_processors_stats()
+    stream_data = [
+        21, ['I love AI', 'LLMs are wonderful', 'Stay healthy'],
+        [{'log_level': 'ERROR', 'log_message': '500 server crash'},
+         {'log_level': 'NOTICE',
+          'log_message': 'Certificate expires in 10 days'}],
+        [32, 42, 64, 84, 128, 168], 'World hello']
+    print(f"Send another batch of data: {stream_data}")
+    stream.process_stream(stream_data)
+    print("\n== DataStream statistics ==")
+    stream.print_processors_stats()
+    print("\nSend 5 processed data from each processor to a JSON plugin:")
+    json_plugin = JSONPlugin()
+    stream.output_pipeline(5, json_plugin)
+    print("\n== DataStream statistics ==")
     stream.print_processors_stats()
