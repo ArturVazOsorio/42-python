@@ -7,12 +7,28 @@
 #   By: aantela- <aantela-@student.42porto.com>      +#+  +:+       +#+       #
 #                                                  +#+#+#+#+#+   +#+          #
 #   Created: 2026/11/14 11:32:04 by aantela-            #+#    #+#            #
-#   Updated: 2026/11/14 12:39:34 by aantela-           ###   ########.fr      #
+#   Updated: 2026/11/16 14:33:07 by aantela-           ###   ########.fr      #
 #                                                                             #
 # ########################################################################### #
 
 import os
-from dotenv import load_dotenv
+import sys
+
+try:
+    from dotenv import load_dotenv  # type: ignore[import-not-found]
+except ImportError:
+    print(
+        "ERROR: 'python-dotenv' is not installed.\n"
+        "WARNING: You are in the global environment!\n"
+        "To seal the laboratory, run:\n"
+        "  python3 -m venv lab_env\n"
+        "  source lab_env/bin/activate  # On Unix\n"
+        "  lab_env\\Scripts\\activate    # On Windows\n\n"
+        "Install it using: pip install -r ex1/requirements.txt\n"
+        "Then run this program again",
+        file=sys.stderr,
+    )
+    sys.exit(1)
 
 
 def load_config() -> dict[str, str | None]:
@@ -65,7 +81,8 @@ def main() -> None:
 
     print("Configuration security check:")
     print("[OK] No hardcoded secrets detected")
-    env_ignored = os.path.exists("ex1/.gitignore")
+    gitignore_path = os.path.join(os.path.dirname(__file__), ".gitignore")
+    env_ignored = os.path.exists(gitignore_path)
     status = "OK" if env_ignored else "WARN"
     print(f"[{status}] .env file properly ignored by git")
     print("[OK] Production overrides available\n")

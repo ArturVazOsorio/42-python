@@ -1,0 +1,21 @@
+#!/usr/bin/env python3
+# ########################################################################### #
+#   shebang: 1                                                                #
+#                                                          :::      ::::::::  #
+#   light_validator.py                                   :+:      :+:    :+:  #
+#                                                      +:+ +:+         +:+    #
+#   By: aantela- <aantela-@student.42porto.com>      +#+  +:+       +#+       #
+#                                                  +#+#+#+#+#+   +#+          #
+#   Created: 2026/11/14 15:25:05 by aantela-            #+#    #+#            #
+#   Updated: 2026/11/16 12:59:40 by aantela-           ###   ########.fr      #
+#                                                                             #
+# ########################################################################### #
+
+from .light_spellbook import light_spell_allowed_ingredients
+
+
+def validate_ingredients(ingredients: str) -> str:
+    allowed = light_spell_allowed_ingredients()
+    if any(item in ingredients.lower() for item in allowed):
+        return f"{ingredients} - VALID"
+    return f"{ingredients} - INVALID"

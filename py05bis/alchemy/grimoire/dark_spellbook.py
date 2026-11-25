@@ -1,0 +1,25 @@
+#!/usr/bin/env python3
+# ########################################################################### #
+#   shebang: 1                                                                #
+#                                                          :::      ::::::::  #
+#   dark_spellbook.py                                    :+:      :+:    :+:  #
+#                                                      +:+ +:+         +:+    #
+#   By: aantela- <aantela-@student.42porto.com>      +#+  +:+       +#+       #
+#                                                  +#+#+#+#+#+   +#+          #
+#   Created: 2026/11/14 15:22:09 by aantela-            #+#    #+#            #
+#   Updated: 2026/11/16 13:18:38 by aantela-           ###   ########.fr      #
+#                                                                             #
+# ########################################################################### #
+
+from .dark_validator import validate_ingredients
+
+
+def dark_spell_allowed_ingredients() -> list[str]:
+    return ["bats", "frogs", "arsenic", "eyeball"]
+
+
+def dark_spell_record(spell_name: str, ingredients: str) -> str:
+    validation = validate_ingredients(ingredients)
+    if "VALID" in validation and "INVALID" not in validation:
+        return f"Spell recorded: {spell_name} ({validation})"
+    return f"Spell rejected: {spell_name} ({validation})"
