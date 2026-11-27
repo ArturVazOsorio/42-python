@@ -7,11 +7,11 @@
 #   By: aantela- <aantela-@student.42porto.com>      +#+  +:+       +#+       #
 #                                                  +#+#+#+#+#+   +#+          #
 #   Created: 2026/11/23 21:29:15 by aantela-            #+#    #+#            #
-#   Updated: 2026/11/27 15:31:30 by aantela-           ###   ########.fr      #
+#   Updated: 2026/11/27 16:10:23 by aantela-           ###   ########.fr      #
 #                                                                             #
 # ########################################################################### #
 
-from pydantic import BaseModel, Field, model_validator
+from pydantic import BaseModel, Field, model_validator, ValidationError
 from enum import Enum
 from typing import Any
 from datetime import datetime
@@ -56,3 +56,31 @@ class AlienContact(BaseModel):
                 "Strong signals (> 7.0) should include received messages.")
 
         return self
+
+
+if __name__ == "__main__":
+    print("alien Contact Log Validation")
+    print("======================================")
+    print("Valid contact report:")
+    try:
+        valid_contact = AlienContact(
+                        contact_id="AC_2024_001",
+                        contact_type=ContactType.RADIO,
+                        location="Area 51, Nevada",
+                        signal_strength=8.5,
+                        duration_minutes=45,
+                        witness_count=5,
+                        timestamp=datetime.now(),
+                        message_received="Greetings from Zeta Reticuli",
+                        is_verified=True
+                        )
+        print(f"ID: {valid_contact.contact_id}")
+        print(f"type: {valid_contact.contact_type}")
+        print(f"Location: {valid_contact.location}")
+        print(f"Signal: {valid_contact.signal_strength}/10")
+        print(f"Duration {valid_contact.duration_minutes} minutes")
+        print(f"Witnesses: {valid_contact.witness_count}")
+        print(f"Message: {valid_contact.message_received}")
+    except ValidationError as e:
+        print("Expected validation error:")
+        print(e.errors()[0]["msg"])
